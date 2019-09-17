@@ -1,2 +1,0 @@
-# NetMqReqRep
-Special Test Project
