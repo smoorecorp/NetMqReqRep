@@ -18,7 +18,7 @@ namespace NetMq.ReqRep.PeopleService
         //Provide People to the client
         public static void ProvidePeople()
         {
-            using (var server = new ResponseSocket(Config.SERVER_URL))
+            using (var server = new ResponseSocket(Config.URL))
             using (var poller = new NetMQPoller { server })
             {
                 var reader = new Reader();
@@ -52,38 +52,6 @@ namespace NetMq.ReqRep.PeopleService
 
                 poller.Run();
                 Console.Read();
-            }
-        }
-
-        /// <summary>
-        /// Request Peope from the Server
-        /// </summary>
-        public static void RequestPeople()
-        {
-            using (var request = new RequestSocket(Config.CLIENT_URL))
-            using (var poller = new NetMQPoller { request })
-            {
-
-                request.ReceiveReady += (sender, e) =>
-                {
-
-                    bool moreData = true;
-
-                    while (moreData)
-                    {
-                        Console.WriteLine(e.Socket.ReceiveFrameString(out moreData));
-                    }
-                    poller.StopAsync();
-                };
-
-                string command = Config.GET_PEOPLE_COMMAND;
-
-                request.SendFrame(command);
-                if (!poller.IsRunning)
-                    poller.Run();
-
-                command = Console.ReadLine();
-
             }
         }
     }
