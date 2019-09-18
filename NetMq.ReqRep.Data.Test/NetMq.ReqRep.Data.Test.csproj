@@ -71,6 +71,10 @@
       <Project>{18b11a98-ebaf-44d5-a44c-b3ecb6a3d489}</Project>
       <Name>NetMq.ReqRep.PeopleService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NetMq_ReqRep_Client\NetMq.ReqRep.Client.csproj">
+      <Project>{8bfe2327-2378-4bf4-9aa5-4c9601a7c06d}</Project>
+      <Name>NetMq.ReqRep.Client</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
