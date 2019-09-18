@@ -20,29 +20,9 @@ namespace NetMq.ReqRep.PeopleService
         {
             try
             {
-                switch (args[0].ToLower())
-                {
-                    case "client": //use client to start the client app
+                Console.WriteLine(Config.TITLE);
 
-                        Console.WriteLine(Config.CLIENT_TITLE);
-
-                        Console.WriteLine(Config.CLIENT_STARTUP_MESSAGE);
-
-                        Thread.Sleep(1000);
-
-                        SetUp(Service.RequestPeople);
-
-                        break;
-                    case "server": //use srver to start the server app
-                        Console.WriteLine(Config.SERVER_TITLE);
-
-                        SetUp(Service.ProvidePeople);
-
-                        break;
-                    default:
-                        Console.WriteLine(Config.DEFAULT_SERVICE_MESSAGE);
-                        break;
-                }
+                SetUp(Service.ProvidePeople);
 
             }
             catch (Exception ex)

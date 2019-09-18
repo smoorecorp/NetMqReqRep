@@ -5,39 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
+using System.Threading;
 
-namespace NetMq_ReqRep_Client
+namespace NetMq.ReqRep.Client
 {
+    /// <summary>
+    /// 
+    /// </summary>
    public class Program
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Console.WriteLine(Config.TITLE);
 
-            
-           
+                Console.WriteLine(Config.STARTUP_MESSAGE);
 
+                Thread.Sleep(1000);
 
-            //using (var pubSocket = new PublisherSocket())
-            //{
-            //    Console.WriteLine("Started");
-            //    pubSocket.Options.SendHighWatermark = 1000;
-
-            //    pubSocket.Bind("tcp://localhost:9999");
-            //    for (var i =0;i<100; i++)
-            //    {
-            //        var msg = "Topic A msg-" + i;
-            //        pubSocket.SendMoreFrame("Topic A").SendFrame(msg);
-
-            //    }
-
-            //    Thread.Sleep(500);
-            //}
-
-            //Console.WriteLine("Done");
-            //Console.ReadLine()
-
+                SetUp(Client.RequestPeople);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(String.Format(Config.ERROR_MESSAGE, ex.Message));
+            }
 
         }
 
+        /// <summary>
+        /// Setup initializes the service
+        /// </summary>
+        /// <param name="iniitalize"></param>
+        public static void SetUp(Action iniitalize)
+        {
+            Task work = Task.Factory.StartNew(() => iniitalize());
+
+            Task.WaitAll(work);
+        }
     }
 }
