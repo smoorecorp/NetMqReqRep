@@ -61,11 +61,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Data\People.csv" />
+    <None Include="bin\Debug\NetMq.RepReq.PeopleService.exe.config" />
     <None Include="Data\People.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\AsyncIO.dll" />
+    <Content Include="bin\Debug\AsyncIO.pdb" />
+    <Content Include="bin\Debug\NetMQ.dll" />
+    <Content Include="bin\Debug\NetMQ.pdb" />
+    <Content Include="bin\Debug\NetMq.RepReq.PeopleService.exe" />
+    <Content Include="bin\Debug\NetMq.RepReq.PeopleService.pdb" />
+    <Content Include="bin\Debug\NetMQ.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
