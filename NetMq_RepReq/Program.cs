@@ -51,6 +51,11 @@ namespace NetMq.ReqRep.PeopleService
             }
 
         }
+
+        /// <summary>
+        /// Setup initializes the service
+        /// </summary>
+        /// <param name="iniitalize"></param>
         public static void SetUp(Action iniitalize)
         {
             Task work = Task.Factory.StartNew(() => iniitalize());

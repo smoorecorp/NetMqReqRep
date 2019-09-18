@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace NetMq.ReqRep.PeopleService
 {
+    /// <summary>
+    /// Constant Values.  In a normal situation we some of these values can benefit from localization.
+    /// </summary>
     public static class Config
     {
         public const string SERVER_URL = "@tcp://*:56000";

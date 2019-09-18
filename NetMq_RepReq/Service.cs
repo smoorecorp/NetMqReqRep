@@ -9,9 +9,13 @@ using System.Threading;
 
 namespace NetMq.ReqRep.PeopleService
 {
+    /// <summary>
+    /// People Service Contains methods to Provide or Request People 
+    /// </summary>
     public static class Service 
     {
 
+        //Provide People to the client
         public static void ProvidePeople()
         {
             using (var server = new ResponseSocket(Config.SERVER_URL))
@@ -51,6 +55,9 @@ namespace NetMq.ReqRep.PeopleService
             }
         }
 
+        /// <summary>
+        /// Request Peope from the Server
+        /// </summary>
         public static void RequestPeople()
         {
             using (var request = new RequestSocket(Config.CLIENT_URL))

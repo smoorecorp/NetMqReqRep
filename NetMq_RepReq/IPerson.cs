@@ -1,5 +1,8 @@
 ﻿namespace NetMq.ReqRep.PeopleService
 {
+    /// <summary>
+    /// Interface for Person
+    /// </summary>
     public interface IPerson
     {
         string City { get; set; }

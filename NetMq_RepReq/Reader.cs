@@ -7,6 +7,9 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace NetMq.ReqRep.PeopleService
 {
+    /// <summary>
+    /// Reader Class contains methods to read and parse a comma delimited file
+    /// </summary>
     public class Reader
     {
         
